@@ -105,8 +105,8 @@ img{max-width:100%;display:block}
   margin:0;
   font-size:clamp(58px,15.5vw,236px);
 }
-.hero__name .reveal{display:inline-block;overflow:hidden;vertical-align:top}
-.hero__name .reveal > span{display:inline-block}
+.hero__name .line{display:block}
+.hero__name .ltr{display:inline-block;will-change:transform,opacity}
 
 .hero__thesis{
   margin:clamp(22px,4vh,40px) 0 0;
@@ -248,7 +248,7 @@ img{max-width:100%;display:block}
    CONTATO — o "linktree"
    ============================================================ */
 .contact{padding-block:clamp(56px,11vh,140px)}
-.contact__head h2{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,52px);letter-spacing:-.02em;margin:.2em 0 .4em;max-width:20ch;line-height:1.04}
+.contact__head h2{font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.02em;margin:.2em 0 .5em;max-width:28ch;line-height:1.1}
 .contact__sub{font-size:clamp(16px,1.6vw,20px);color:var(--ink-2);font-weight:500;max-width:48ch;margin:0 0 clamp(28px,5vh,52px)}
 .links{border-top:1px solid var(--line)}
 .link{
@@ -291,7 +291,7 @@ img{max-width:100%;display:block}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .mark svg path{stroke-dashoffset:0!important}
-  .hero__name .reveal > span{transform:none!important}
+  .hero__name .ltr{transform:none!important;opacity:1!important}
 }
 </style>
 </head>
@@ -305,9 +305,9 @@ img{max-width:100%;display:block}
   </div>
 
   <div class="hero__main">
-    <h1 class="hero__name">
-      <span class="reveal"><span>Tiago</span></span><br>
-      <span class="reveal"><span>Quixaba</span></span>
+    <h1 class="hero__name" aria-label="Tiago Quixaba">
+      <span class="line" aria-hidden="true">Tiago</span>
+      <span class="line" aria-hidden="true">Quixaba</span>
     </h1>
     <p class="hero__thesis">
       Sites pra empreendedor que não tem grana pra agência cara, do papel pra tela em <span class="mark">poucos dias<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 45 6, 120 6, 197 11"/></svg></span>.
@@ -431,7 +431,7 @@ img{max-width:100%;display:block}
 <section class="contact wrap" aria-labelledby="contact-title">
   <div class="contact__head">
     <span class="eyebrow">contato</span>
-    <h2 id="contact-title">Sair na frente custa <span style="color:var(--ipe-deep)">menos</span> do que você pensa, e as vezes nem é sobre dinheiro.</h2>
+    <h2 id="contact-title">O motivo pelo qual você busca algo é tão importante quanto o que você busca. Não perca tempo correndo atrás do que <span style="color:var(--ipe-deep)">não te move</span>.</h2>
     <p class="contact__sub">Tá com uma ideia parada? Bora botar no ar.</p>
   </div>
 
@@ -551,11 +551,24 @@ img{max-width:100%;display:block}
     gsap.ticker.add(function(t){ lenis.raf(t*1000); });
     gsap.ticker.lagSmoothing(0);
 
-    // entrada do hero: nome sobe atrás da máscara
-    var names = document.querySelectorAll('.hero__name .reveal > span');
-    gsap.set(names, { yPercent:110 });
-    var tl = gsap.timeline({ delay:.15 });
-    tl.to(names, { yPercent:0, duration:1.05, ease:'expo.out', stagger:.09 });
+    // entrada do hero: as letras caminham pro centro e formam o nome
+    var letters = [];
+    document.querySelectorAll('.hero__name .line').forEach(function(line){
+      var chars = line.textContent.split('');
+      line.textContent = '';
+      var mid = (chars.length - 1) / 2;
+      chars.forEach(function(ch, i){
+        var s = document.createElement('span');
+        s.className = 'ltr'; s.textContent = ch; s._off = i - mid;
+        line.appendChild(s); letters.push(s);
+      });
+    });
+    var fs = parseFloat(getComputedStyle(document.querySelector('.hero__name')).fontSize) || 120;
+    var spread = fs * 0.22, drop = fs * 0.06;
+    letters.forEach(function(s){ gsap.set(s, { x: s._off * spread, y: drop, opacity: 0 }); });
+    var tl = gsap.timeline({ delay:.25 });
+    tl.to(letters, { opacity:1, duration:0.55, ease:'power1.out', stagger:{ each:0.045, from:'center' } }, 0)
+      .to(letters, { x:0, y:0, duration:1.45, ease:'power3.out', stagger:{ each:0.05, from:'center' } }, 0);
     // sublinhado ipê se desenha
     var path = document.querySelector('.mark svg path');
     if(path){
