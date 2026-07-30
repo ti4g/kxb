@@ -1,0 +1,268 @@
+/* ============================================================
+   TOKENS — a identidade vive aqui
+   Paleta: papel osso quente + tinta quente + ipê-amarelo (a luz de Palmas)
+   ============================================================ */
+:root{
+  --paper:#F3EFE4;        /* papel osso, levemente mais quente que o creme padrão */
+  --paper-2:#EBE5D6;      /* painel / seções alternadas */
+  --paper-3:#E2DAC7;      /* molduras */
+  --ink:#1C1A14;          /* preto quente */
+  --ink-2:#3C382E;        /* texto forte secundário */
+  --ink-soft:#6E685A;     /* texto muted quente */
+  --ipe:#E39A1E;          /* ipê-amarelo — acento único */
+  --ipe-deep:#A9700C;     /* acento sobre claro / hover (contraste AA) */
+  --line:rgba(28,26,20,.14);
+  --line-2:rgba(28,26,20,.28);
+
+  --font-display:"Bricolage Grotesque", system-ui, sans-serif;
+  --font-body:"Hanken Grotesk", system-ui, sans-serif;
+  --font-mono:"Space Mono", ui-monospace, monospace;
+
+  --pad-x:clamp(20px, 6vw, 96px);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:clamp(16px,1.1vw,18px);
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--ipe);color:var(--ink)}
+
+/* foco visível no teclado — piso de qualidade */
+:focus-visible{outline:2px solid var(--ipe-deep);outline-offset:3px;border-radius:2px}
+
+/* rótulos mono — "de código", porque ele é dev */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  display:inline-flex;align-items:center;gap:.6em;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--line-2)}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding-top:clamp(28px,5vh,56px);
+  padding-bottom:clamp(28px,5vh,56px);
+}
+.hero__top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.hero__top .sig{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+.hero__main{display:flex;flex-direction:column;justify-content:center;flex:1;padding-block:clamp(32px,9vh,104px)}
+.hero__name{
+  font-family:var(--font-display);
+  font-weight:700;
+  line-height:.92;
+  letter-spacing:-.03em;
+  margin:0;
+  font-size:clamp(58px,15.5vw,236px);
+}
+.hero__name .line{display:block}
+.hero__name .ltr{display:inline-block;will-change:transform,opacity}
+.hero__thesis .word{display:inline-block;will-change:transform,opacity}
+
+.hero__thesis{
+  margin:clamp(36px,7vh,68px) 0 0;
+  max-width:24ch;
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(22px,3.4vw,40px);
+  line-height:1.18;
+  letter-spacing:-.01em;
+  color:var(--ink);
+}
+/* palavra-chave com sublinhado ipê que se "desenha" no load */
+.mark{position:relative;white-space:nowrap;color:var(--ink)}
+.mark svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.42em;overflow:visible;pointer-events:none}
+.mark svg path{
+  fill:none;stroke:var(--ipe);stroke-width:8;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  transition:none;
+}
+
+.hero__bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.proof{max-width:34ch;color:var(--ink-2);font-size:clamp(15px,1.15vw,17px)}
+.proof b{font-weight:600}
+.proof .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ipe);margin-right:.5em;vertical-align:.05em}
+.scrollcue{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:inline-flex;gap:.6em;align-items:center}
+.scrollcue .arw{display:inline-block;animation:bob 1.8s var(--ease) infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ============================================================
+   DESTAQUE — Intimatto
+   ============================================================ */
+.spotlight{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.spotlight__inner{padding-block:clamp(56px,11vh,140px)}
+.spotlight__grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);align-items:center}
+@media(min-width:900px){.spotlight__grid{grid-template-columns:1.05fr 1fr}}
+
+.spotlight__frame{
+  position:relative;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line-2);
+  aspect-ratio:16/9;background:var(--poster,#C24E74);
+  box-shadow:0 24px 60px -30px rgba(28,26,20,.5);
+}
+.spotlight__frame .poster,.card__frame .poster{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;
+  padding:22px;color:#fff;
+}
+.spotlight__frame .poster .pname{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,52px);line-height:.95;letter-spacing:-.02em}
+.poster .ptag{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.spotlight__frame img,.card__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+
+.spotlight__meta .kick{color:var(--ipe-deep)}
+.spotlight__title{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,6vw,74px);line-height:.96;letter-spacing:-.025em;margin:.2em 0 .3em}
+.spotlight__desc{max-width:42ch;color:var(--ink-2);margin:0 0 1.6em}
+.linkline{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:.7em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:5px;transition:color .25s var(--ease),border-color .25s var(--ease)}
+.linkline .arw{transition:transform .3s var(--ease)}
+.linkline:hover{color:var(--ipe-deep);border-color:var(--ipe)}
+.linkline:hover .arw{transform:translate(3px,-3px)}
+
+/* ============================================================
+   ÍNDICE DE PROJETOS — a assinatura (hover revela o print real)
+   ============================================================ */
+.works{padding-block:clamp(56px,10vh,128px)}
+.works__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,5vh,56px)}
+.works__head h2{font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.2vw,40px);letter-spacing:-.02em;margin:0}
+.works__count{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+
+.works__layout{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:960px){.works__layout{grid-template-columns:1fr 40%;gap:clamp(32px,4vw,64px);align-items:start}}
+
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;
+  padding:clamp(18px,2.6vh,30px) 0;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  transition:padding-left .4s var(--ease);
+}
+.row__label{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.55em;display:flex;gap:.7em;align-items:center;flex-wrap:wrap}
+.row__badge{color:var(--ipe-deep)}
+.tag-mobile{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line-2);border-radius:999px;padding:2px 9px 2px 7px;display:inline-flex;align-items:center;gap:.45em;line-height:1.7}
+.tag-mobile svg{width:8px;height:12px;flex:none}
+.tag-mobile svg rect{fill:none;stroke:var(--ink-soft);stroke-width:1.4}
+.tag-mobile svg line{stroke:var(--ink-soft);stroke-width:1.4}
+.row__name{font-family:var(--font-display);font-weight:600;font-size:clamp(30px,5.2vw,60px);line-height:1;letter-spacing:-.025em;color:var(--ink);transition:color .3s var(--ease),transform .4s var(--ease)}
+.row__go{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:.5em;opacity:0;transform:translateX(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.row::before{content:"";position:absolute;left:calc(-1 * var(--pad-x));top:0;bottom:0;width:3px;background:var(--ipe);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease)}
+.row:hover,.row:focus-within{padding-left:clamp(10px,1.4vw,22px)}
+.row:hover .row__name,.row:focus-within .row__name{color:var(--ipe-deep)}
+.row:hover .row__go,.row:focus-within .row__go{opacity:1;transform:translateX(0)}
+.row:hover::before,.row:focus-within::before{transform:scaleY(1)}
+.row a.row__link::after{content:"";position:absolute;inset:0}
+
+/* quadro sticky que mostra o print do projeto ativo */
+.preview{display:none}
+@media(min-width:960px){
+  .preview{display:block;position:sticky;top:12vh}
+  .preview__frame{
+    position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);
+    aspect-ratio:16/9;background:var(--paper-3);
+    box-shadow:0 30px 70px -40px rgba(28,26,20,.55);
+  }
+  .preview__slide{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--ease);}
+  .preview__slide.is-active{opacity:1}
+  .preview__slide .poster{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:24px;color:#fff}
+  .preview__slide .poster .pname{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,3.6vw,50px);line-height:.95;letter-spacing:-.02em}
+  .preview__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  .preview__hint{margin-top:18px;display:inline-flex;align-items:center;gap:.7em;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ipe-deep);background:rgba(227,154,30,.13);border:1px solid rgba(227,154,30,.36);padding:9px 15px;border-radius:999px}
+  .preview__hint .cur{display:inline-block;font-size:15px;line-height:1;animation:nudge 1.5s var(--ease) infinite}
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
+}
+
+/* mini-print inline no mobile (o sticky some) */
+.row__thumb{display:none}
+@media(max-width:959px){
+  .row{grid-template-columns:1fr}
+  .row__go{display:none}
+  .row__thumb{display:block;position:relative;margin-top:16px;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);aspect-ratio:16/9;background:var(--paper-3)}
+  .row__thumb .poster{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:16px;color:#fff}
+  .row__thumb .poster .pname{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:.95}
+  .row__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+}
+
+/* ============================================================
+   SOBRE
+   ============================================================ */
+.about{background:var(--ink);color:var(--paper);padding-block:clamp(64px,13vh,168px)}
+.about .eyebrow{color:#b7ad97}
+.about .eyebrow::before{background:rgba(243,239,228,.28)}
+.about p{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(24px,3.6vw,46px);line-height:1.24;letter-spacing:-.015em;
+  max-width:20ch;margin:.6em 0 0;color:var(--paper);
+}
+.about p .hl{color:var(--ipe)}
+.about__meta{margin-top:clamp(32px,5vh,56px);display:flex;gap:clamp(24px,5vw,72px);flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#b7ad97}
+.about__meta b{color:var(--paper);display:block;font-weight:400;margin-top:.4em;letter-spacing:.06em}
+
+/* ============================================================
+   CONTATO — o "linktree"
+   ============================================================ */
+.contact{padding-block:clamp(56px,11vh,140px)}
+.contact__head h2{font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.02em;margin:.2em 0 .5em;max-width:28ch;line-height:1.1}
+.contact__sub{font-size:clamp(16px,1.6vw,20px);color:var(--ink-2);font-weight:500;max-width:48ch;margin:0 0 clamp(28px,5vh,52px)}
+.links{border-top:1px solid var(--line)}
+.link{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,3vw,32px);
+  padding:clamp(16px,2.4vh,26px) 0;border-bottom:1px solid var(--line);position:relative;
+  transition:padding-left .35s var(--ease);
+}
+.link:hover,.link:focus-within{padding-left:clamp(8px,1.2vw,18px)}
+.link__n{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft)}
+.link__name{font-family:var(--font-display);font-weight:600;font-size:clamp(22px,3vw,34px);letter-spacing:-.02em;transition:color .3s var(--ease)}
+.link__val{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);justify-self:end;text-align:right;display:inline-flex;align-items:center;gap:.6em}
+.link:hover .link__name,.link:focus-within .link__name{color:var(--ipe-deep)}
+.link .arw{transition:transform .3s var(--ease)}
+.link:hover .arw{transform:translate(3px,-3px)}
+.link a.link__hit::after{content:"";position:absolute;inset:0}
+.copied{color:var(--ipe-deep)!important}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.foot{background:var(--paper-2);border-top:1px solid var(--line);padding-block:clamp(48px,8vh,88px);overflow:hidden}
+.foot__mark{font-family:var(--font-display);font-weight:700;font-size:clamp(52px,14vw,190px);line-height:.9;letter-spacing:-.03em;color:var(--ink);margin:0 0 .2em;white-space:nowrap}
+.foot__row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.foot__row a{border-bottom:1px solid transparent;transition:border-color .25s var(--ease),color .25s var(--ease)}
+.foot__row a:hover{color:var(--ink);border-color:var(--line-2)}
+
+/*
+  PROVA SOCIAL — pronta pra quando tiver o 1º depoimento (EDITE AQUI e descomente)
+  <section class="about" style="background:var(--paper-2);color:var(--ink)">
+    <div class="wrap">
+      <p style="color:var(--ink)">"Coloque aqui o depoimento do cliente."</p>
+      <div class="about__meta" style="color:var(--ink-soft)">— Nome do cliente <b>Negócio</b></div>
+    </div>
+  </section>
+*/
+
+/* ============================================================
+   REDUCED MOTION — respeita quem pede menos movimento
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .mark svg path{stroke-dashoffset:0!important}
+  .hero__name .ltr{transform:none!important;opacity:1!important}
+}
