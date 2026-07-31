@@ -68,46 +68,51 @@
       gsap.ticker.lagSmoothing(0);
     }
 
-    // entrada do hero: as letras caminham pro centro e formam o nome
+    // ENTRADA: tela em branco -> as letras vêm das bordas e pousam formando o nome
     var letters = [];
     document.querySelectorAll('.hero__name .line').forEach(function(line){
       var chars = line.textContent.split('');
       line.textContent = '';
-      var mid = (chars.length - 1) / 2;
-      chars.forEach(function(ch, i){
+      chars.forEach(function(ch){
         var s = document.createElement('span');
-        s.className = 'ltr'; s.textContent = ch; s._off = i - mid;
+        s.className = 'ltr'; s.textContent = ch;
         line.appendChild(s); letters.push(s);
       });
     });
-    var fs = parseFloat(getComputedStyle(document.querySelector('.hero__name')).fontSize) || 120;
-    var spread = fs * 0.22, drop = fs * 0.06;
-    letters.forEach(function(s){ gsap.set(s, { x: s._off * spread, y: drop, opacity: 0 }); });
-    var tl = gsap.timeline({ delay:.25 });
-    tl.to(letters, { opacity:1, duration:0.55, ease:'power1.out', stagger:{ each:0.045, from:'center' } }, 0)
-      .to(letters, { x:0, y:0, duration:1.45, ease:'power3.out', stagger:{ each:0.05, from:'center' } }, 0);
-    tl.from('.hero__bottom > *', { y:16, opacity:0, duration:.8, ease:'expo.out', stagger:.12 }, '-=1.05');
+    // esconde o entorno (tela em branco no começo)
+    gsap.set('.hero__top', { opacity:0 });
+    gsap.set('.hero__bottom > *', { opacity:0, y:16 });
+    // cada letra parte de um ponto espalhado ao redor da tela e desliza pro lugar
+    var vw = window.innerWidth, vh = window.innerHeight, cx = vw/2, cy = vh/2;
+    var R = Math.max(vw, vh) * 0.62, n = letters.length;
+    letters.forEach(function(s, i){
+      var r = s.getBoundingClientRect();
+      var ang = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.8;
+      var sx = cx + Math.cos(ang) * R, sy = cy + Math.sin(ang) * R;
+      gsap.set(s, { x: sx - (r.left + r.width/2), y: sy - (r.top + r.height/2), rotation:(Math.random()-0.5)*18, opacity:0 });
+    });
+    var tl = gsap.timeline({ delay:.2 });
+    tl.to(letters, { x:0, y:0, rotation:0, opacity:1, duration:1.5, ease:'expo.out', stagger:{ each:0.05, from:'edges' } });
+    tl.to('.hero__top', { opacity:1, duration:.7, ease:'power2.out' }, '-=.5');
+    tl.to('.hero__bottom > *', { opacity:1, y:0, duration:.8, ease:'expo.out', stagger:.12 }, '<');
 
-    // scrollytelling: o hero "pina" e a frase acende palavra por palavra conforme o scroll
+    // scrollytelling: hero pina; a frase cai de cima palavra por palavra e o bordão assina
     var thesis = document.querySelector('.hero__thesis');
-    var words = [];
-    Array.prototype.slice.call(thesis.childNodes).forEach(function(node){
-      if(node.nodeType === 3){
-        var frag = document.createDocumentFragment();
-        node.textContent.split(/(\s+)/).forEach(function(p){
-          if(!p) return;
-          if(!p.trim()){ frag.appendChild(document.createTextNode(p)); }
-          else { var w = document.createElement('span'); w.className = 'word'; w.textContent = p; frag.appendChild(w); words.push(w); }
-        });
-        thesis.replaceChild(frag, node);
-      } else if(node.nodeType === 1){ node.classList.add('word'); words.push(node); }
+    var txt = thesis.textContent, words = [];
+    thesis.textContent = '';
+    txt.split(/(\s+)/).forEach(function(p){
+      if(!p) return;
+      if(!p.trim()){ thesis.appendChild(document.createTextNode(p)); }
+      else { var w = document.createElement('span'); w.className='word'; w.textContent=p; thesis.appendChild(w); words.push(w); }
     });
     var path = document.querySelector('.mark svg path'), plen = path ? path.getTotalLength() : 0;
     if(path){ path.style.strokeDasharray = plen; path.style.strokeDashoffset = plen; }
-    gsap.set(words, { opacity:0.14, y:'0.35em' });
-    var stl = gsap.timeline({ scrollTrigger:{ trigger:'.hero', start:'top top', end:'+=75%', pin:true, scrub:0.5, anticipatePin:1 } });
-    stl.to(words, { opacity:1, y:0, ease:'none', stagger:0.5, duration:1 });
-    if(path){ stl.to(path, { strokeDashoffset:0, ease:'none', duration:0.6 }, '>-0.35'); }
+    gsap.set(words, { opacity:0, yPercent:-110 });
+    gsap.set('.hero__bordao', { opacity:0, y:22 });
+    var stl = gsap.timeline({ scrollTrigger:{ trigger:'.hero', start:'top top', end:'+=80%', pin:true, scrub:0.5, anticipatePin:1 } });
+    stl.to(words, { opacity:1, yPercent:0, ease:'power2.out', stagger:0.4, duration:1 });
+    stl.to('.hero__bordao', { opacity:1, y:0, ease:'power2.out', duration:0.8 }, '>-0.15');
+    if(path){ stl.to(path, { strokeDashoffset:0, ease:'none', duration:0.6 }, '>-0.2'); }
 
     // reveals no scroll
     gsap.utils.toArray('.spotlight__frame,.spotlight__meta > *').forEach(function(el){

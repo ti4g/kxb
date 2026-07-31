@@ -91,6 +91,16 @@ img{max-width:100%;display:block}
   letter-spacing:-.01em;
   color:var(--ink);
 }
+.hero__bordao{
+  margin:clamp(16px,2.4vh,26px) 0 0;
+  max-width:24ch;
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(19px,2.6vw,30px);
+  line-height:1.2;
+  letter-spacing:-.01em;
+  color:var(--ink);
+}
 /* palavra-chave com sublinhado ipê que se "desenha" no load */
 .mark{position:relative;white-space:nowrap;color:var(--ink)}
 .mark svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.42em;overflow:visible;pointer-events:none}
