@@ -5,15 +5,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics, logEvent, isSupported } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 
-// EDITE AQUI: cole a config do seu app web (Firebase Console > Configurações do projeto > Seus apps)
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: ""   // precisa começar com G- (é o que liga o Analytics)
+  apiKey: "AIzaSyAzuXQrQLzwMOcaoPObEodU1YuIYOqDi4E",
+  authDomain: "portfolio-306a4.firebaseapp.com",
+  projectId: "portfolio-306a4",
+  storageBucket: "portfolio-306a4.firebasestorage.app",
+  messagingSenderId: "693153935879",
+  appId: "1:693153935879:web:063dbec0b1d4f70f87b0a2",
+  measurementId: "G-WGH7V1MWH2"
 };
 
 if (firebaseConfig.measurementId && await isSupported().catch(() => false)) {
