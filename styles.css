@@ -77,6 +77,10 @@ img{max-width:100%;display:block}
   margin:0;
   font-size:clamp(58px,15.5vw,236px);
 }
+/* no celular o nome precisa de uma fatia bem maior da largura pra preencher igual no PC */
+@media(max-width:700px){
+  .hero__name{font-size:23vw;line-height:.94}
+}
 .hero__name .line{display:block}
 .hero__name .ltr{display:inline-block;will-change:transform,opacity}
 .hero__thesis .word{display:inline-block;will-change:transform,opacity}
