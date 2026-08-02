@@ -119,12 +119,10 @@
     gsap.set(words, { opacity:0, yPercent:-110 });
     gsap.set('.hero__bordao', { opacity:0, y:22 });
     var bar = document.querySelector('.heroprog i');
-    var hint = document.querySelector('.scrollhint');
     var stl = gsap.timeline({ scrollTrigger:{ trigger:'.hero', start:'top top', end:'+=160%', pin:true, scrub:0.5, anticipatePin:1,
       onUpdate:function(self){
         if(self.progress > 0.01){ floats.forEach(function(f){ f.kill(); }); }
         if(bar){ bar.style.width = (self.progress*100).toFixed(1) + '%'; }
-        if(hint){ gsap.to(hint, { opacity: self.progress > 0.02 ? 0 : 1, duration:.35, overwrite:true }); }
       } } });
     // 1) as letras param de flutuar e convergem formando o nome
     stl.to(letters, { x:0, y:0, rotation:0, ease:'power2.inOut', stagger:{ each:0.05, from:'start' }, duration:1.6 });
