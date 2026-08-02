@@ -266,6 +266,14 @@ img{max-width:100%;display:block}
 .foot__row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .foot__row a{border-bottom:1px solid transparent;transition:border-color .25s var(--ease),color .25s var(--ease)}
 .foot__row a:hover{color:var(--ink);border-color:var(--line-2)}
+.foot__sig{display:inline-flex;align-items:center;gap:.8em}
+.kxbmark{
+  font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.14em;
+  color:var(--ink);border:1px solid var(--line-2);border-radius:5px;padding:3px 8px;
+  text-decoration:none;cursor:help;
+  transition:color .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease);
+}
+.kxbmark:hover{color:var(--ipe-deep);border-color:var(--ipe);background:rgba(227,154,30,.12)}
 
 /*
   PROVA SOCIAL — pronta pra quando tiver o 1º depoimento (EDITE AQUI e descomente)

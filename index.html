@@ -1,222 +1,275 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tiago Quixaba — desenvolvedor front-end</title>
-<meta name="description" content="Sites pra empreendedor que tá começando, sem enrolação e bem explicado. Do papel pra tela em poucos dias. Palmas, TO.">
-<meta name="theme-color" content="#F3EFE4">
 
-<!-- Open Graph / preview no WhatsApp e redes -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tiago Quixaba — desenvolvedor front-end">
-<meta property="og:description" content="Do papel pra tela em poucos dias. Sites pra empreendedor que não tem grana pra agência cara.">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="assets/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tiago Quixaba, desenvolvedor front-end. Do papel pra tela em poucos dias.">
-<meta name="twitter:card" content="summary_large_image">
-<!-- EDITE AQUI (no deploy): troque a linha og:image por URL absoluta, ex.:
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiago Quixaba — desenvolvedor front-end</title>
+  <meta name="description"
+    content="Sites pra empreendedor que tá começando, sem enrolação e bem explicado. Do papel pra tela em poucos dias. Palmas, TO.">
+  <meta name="theme-color" content="#F3EFE4">
+
+  <!-- Open Graph / preview no WhatsApp e redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tiago Quixaba — desenvolvedor front-end">
+  <meta property="og:description"
+    content="Do papel pra tela em poucos dias. Sites pra empreendedor que não tem grana pra agência cara.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tiago Quixaba, desenvolvedor front-end. Do papel pra tela em poucos dias.">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- EDITE AQUI (no deploy): troque a linha og:image por URL absoluta, ex.:
      <meta property="og:image" content="https://ti4g.github.io/SEU-REPO/assets/og.png">
      O WhatsApp/redes exigem URL completa (https://) — caminho relativo às vezes não é lido. -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<!-- ================= HERO ================= -->
-<header class="hero wrap" id="top">
-  <div class="hero__top">
-    <span class="eyebrow">Palmas, TO — front-end</span>
-    <span class="sig">Tiago Quixaba</span>
-  </div>
+  <!-- ================= HERO ================= -->
+  <header class="hero wrap" id="top">
+    <div class="hero__top">
+      <span class="eyebrow">Palmas, TO — front-end</span>
+    </div>
 
-  <div class="hero__main">
-    <h1 class="hero__name" aria-label="Tiago Quixaba">
-      <span class="line" aria-hidden="true">Tiago</span>
-      <span class="line" aria-hidden="true">Quixaba</span>
-    </h1>
-    <p class="hero__thesis">Sites pra empreendedor que não tem grana pra agência cara.</p>
-    <p class="hero__bordao">Do papel pra tela em <span class="mark">poucos dias<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 13 C 45 6, 120 6, 197 11"/></svg></span>.</p>
-  </div>
+    <div class="hero__main">
+      <h1 class="hero__name" aria-label="Tiago Quixaba">
+        <span class="line" aria-hidden="true">Tiago</span>
+        <span class="line" aria-hidden="true">Quixaba</span>
+      </h1>
+      <p class="hero__thesis">Sites para empreendedor que não tem interesse em pagar caro.</p>
+      <p class="hero__bordao">Do papel pra tela em <span class="mark">poucos dias<svg viewBox="0 0 200 20"
+            preserveAspectRatio="none" aria-hidden="true">
+            <path d="M3 13 C 45 6, 120 6, 197 11" />
+          </svg></span>.</p>
+    </div>
 
-  <div class="hero__bottom">
-    <p class="proof"><span class="dot"></span>Criador do <b>allmosso.com.br</b> — plataforma do RU do IFTO Palmas, <b>+1.000 acessos por semana</b>.</p>
-    <a class="scrollcue" href="#trabalhos">ver trabalhos <span class="arw">↓</span></a>
-  </div>
+    <div class="hero__bottom">
+      <p class="proof"><span class="dot"></span>Criador do <b>allmosso.com.br</b> — Plataforma do RU IFTO Palmas,
+        <b>+1.000 acessos por semana</b>.</p>
+      <a class="scrollcue" href="#trabalhos">ver trabalhos <span class="arw">↓</span></a>
+    </div>
 
-  <div class="heroprog" aria-hidden="true"><i></i></div>
-</header>
+    <div class="heroprog" aria-hidden="true"><i></i></div>
+  </header>
 
-<!-- ================= DESTAQUE: INTIMATTO ================= -->
-<section class="spotlight" aria-labelledby="spot-title">
-  <div class="spotlight__inner wrap">
-    <div class="spotlight__grid">
-      <div class="spotlight__frame" style="--poster:#C24E74">
-        <div class="poster">
-          <span class="ptag">moda feminina</span>
-          <span class="pname">Intimatto</span>
+  <!-- ================= DESTAQUE: INTIMATTO ================= -->
+  <section class="spotlight" aria-labelledby="spot-title">
+    <div class="spotlight__inner wrap">
+      <div class="spotlight__grid">
+        <div class="spotlight__frame" style="--poster:#C24E74">
+          <div class="poster">
+            <span class="ptag">moda feminina</span>
+            <span class="pname">Intimatto</span>
+          </div>
+          <img src="assets/intimatto.webp" alt="Print do site Intimatto — boutique de moda feminina" loading="lazy">
         </div>
-        <img src="assets/intimatto.webp" alt="Print do site Intimatto — boutique de moda feminina" loading="lazy">
+        <div class="spotlight__meta">
+          <div style="display:flex;align-items:center;gap:.85em;flex-wrap:wrap">
+            <span class="eyebrow"><span class="kick">destaque</span></span>
+            <span class="tag-mobile"><svg viewBox="0 0 8 12" aria-hidden="true">
+                <rect x="0.7" y="0.7" width="6.6" height="10.6" rx="1.3" />
+                <line x1="3" y1="9.4" x2="5" y2="9.4" />
+              </svg>mobile</span>
+          </div>
+          <h2 class="spotlight__title" id="spot-title">Intimatto</h2>
+          <!-- EDITE AQUI: 1 frase real sobre o projeto -->
+          <p class="spotlight__desc">Boutique de moda feminina de Palmas. Desenvolvi a vitrine online da loja pra fechar
+            venda direto no whatsapp com todas as informações que precisa.</p>
+          <a class="linkline" href="https://ti4g.github.io/intimatto/" target="_blank" rel="noopener">abrir site <span
+              class="arw">↗</span></a>
+        </div>
       </div>
-      <div class="spotlight__meta">
-        <div style="display:flex;align-items:center;gap:.85em;flex-wrap:wrap">
-          <span class="eyebrow"><span class="kick">destaque</span></span>
-          <span class="tag-mobile"><svg viewBox="0 0 8 12" aria-hidden="true"><rect x="0.7" y="0.7" width="6.6" height="10.6" rx="1.3"/><line x1="3" y1="9.4" x2="5" y2="9.4"/></svg>mobile</span>
-        </div>
-        <h2 class="spotlight__title" id="spot-title">Intimatto</h2>
-        <!-- EDITE AQUI: 1 frase real sobre o projeto -->
-        <p class="spotlight__desc">Boutique de moda feminina de Palmas. Fiz a vitrine online da loja pra fechar venda direto no whatsapp com todas as informações que precisa.</p>
-        <a class="linkline" href="https://ti4g.github.io/intimatto/" target="_blank" rel="noopener">abrir site <span class="arw">↗</span></a>
+    </div>
+  </section>
+
+  <!-- ================= ÍNDICE DE PROJETOS ================= -->
+  <section class="works wrap" id="trabalhos" aria-labelledby="works-title">
+    <div class="works__head">
+      <h2 id="works-title">Trabalhos selecionados</h2>
+      <span class="works__count">05 projetos · Palmas → remoto</span>
+    </div>
+
+    <div class="works__layout">
+      <div class="rows" id="rows">
+
+        <article class="row" data-poster="#1E8E5A" data-shot="assets/shot-allmosso.webp">
+          <div>
+            <div class="row__label"><span>plataforma · IFTO Palmas</span><span class="row__badge">● no ar ·
+                +1.000/sem</span><span class="tag-mobile"><svg viewBox="0 0 8 12" aria-hidden="true">
+                  <rect x="0.7" y="0.7" width="6.6" height="10.6" rx="1.3" />
+                  <line x1="3" y1="9.4" x2="5" y2="9.4" />
+                </svg>mobile</span></div>
+            <div class="row__name">Allmosso</div>
+            <div class="row__thumb">
+              <div class="poster" style="background:#1E8E5A"><span class="ptag">plataforma</span><span
+                  class="pname">allmosso</span></div><img src="assets/shot-allmosso.webp" alt="Print do allmosso"
+                loading="lazy">
+            </div>
+          </div>
+          <a class="row__link" href="https://allmosso.com.br" target="_blank" rel="noopener"
+            aria-label="Abrir allmosso.com.br"></a>
+          <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
+        </article>
+
+        <article class="row" data-poster="#10233B" data-shot="assets/shot-higor.webp">
+          <div>
+            <div class="row__label"><span>imóveis · alto padrão</span></div>
+            <div class="row__name">Higor Oliver</div>
+            <div class="row__thumb">
+              <div class="poster" style="background:#10233B"><span class="ptag">imóveis</span><span class="pname">Higor
+                  Oliver</span></div><img src="assets/shot-higor.webp" alt="Print do site Higor Oliver" loading="lazy">
+            </div>
+          </div>
+          <a class="row__link" href="https://ti4g.github.io/higoroliver/" target="_blank" rel="noopener"
+            aria-label="Abrir site Higor Oliver"></a>
+          <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
+        </article>
+
+        <article class="row" data-poster="#1C6FB8" data-shot="assets/shot-shirley.webp">
+          <div>
+            <div class="row__label"><span>imóveis · perita judicial</span></div>
+            <div class="row__name">Shirley Silva</div>
+            <div class="row__thumb">
+              <div class="poster" style="background:#1C6FB8"><span class="ptag">imóveis</span><span
+                  class="pname">Shirley Silva</span></div><img src="assets/shot-shirley.webp"
+                alt="Print do site Shirley Silva" loading="lazy">
+            </div>
+          </div>
+          <a class="row__link" href="https://ti4g.github.io/ShirleySilva/" target="_blank" rel="noopener"
+            aria-label="Abrir site Shirley Silva"></a>
+          <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
+        </article>
+
+        <article class="row" data-poster="#0C0C0D" data-shot="assets/shot-lux.webp">
+          <div>
+            <div class="row__label"><span>cloud gaming</span></div>
+            <div class="row__name">LUX</div>
+            <div class="row__thumb">
+              <div class="poster" style="background:#0C0C0D"><span class="ptag" style="color:#35E0D0">cloud
+                  gaming</span><span class="pname" style="color:#35E0D0">LUX</span></div><img src="assets/shot-lux.webp"
+                alt="Print do site LUX" loading="lazy">
+            </div>
+          </div>
+          <a class="row__link" href="https://ti4g.github.io/lux/" target="_blank" rel="noopener"
+            aria-label="Abrir site LUX"></a>
+          <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
+        </article>
+
+        <article class="row" data-poster="#E24B2E" data-shot="assets/shot-sneaker.webp">
+          <div>
+            <div class="row__label"><span>catálogo · e-commerce</span></div>
+            <div class="row__name">Sneaker Drops</div>
+            <div class="row__thumb">
+              <div class="poster" style="background:#E24B2E"><span class="ptag">catálogo</span><span
+                  class="pname">Sneaker Drops</span></div><img src="assets/shot-sneaker.webp"
+                alt="Print do catálogo Sneaker Drops" loading="lazy">
+            </div>
+          </div>
+          <a class="row__link" href="https://ti4g.github.io/Sneaker-Drops/" target="_blank" rel="noopener"
+            aria-label="Abrir catálogo Sneaker Drops"></a>
+          <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
+        </article>
+
+      </div>
+
+      <aside class="preview" aria-hidden="true">
+        <div class="preview__frame" id="previewFrame"></div>
+        <div class="preview__hint"><span class="cur" aria-hidden="true">←</span> passe o mouse nos projetos</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE ================= -->
+  <section class="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <span class="eyebrow">sobre</span>
+      <p id="about-title">Faço sites pra quem tá começando (ou já começou), sem enrolação e explicado de um jeito
+        simples onde <span class="hl">você entende o que quer</span>, e entende o que eu faço.</p>
+      <div class="about__meta">
+        <span>base<b>Palmas, TO · atendo remoto</b></span>
+        <span>faço<b>sites · landing pages · plataformas</b></span>
+        <span>stack<b>HTML · CSS · JavaScript</b></span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= ÍNDICE DE PROJETOS ================= -->
-<section class="works wrap" id="trabalhos" aria-labelledby="works-title">
-  <div class="works__head">
-    <h2 id="works-title">Trabalhos selecionados</h2>
-    <span class="works__count">05 projetos · Palmas → remoto</span>
-  </div>
-
-  <div class="works__layout">
-    <div class="rows" id="rows">
-
-      <article class="row" data-poster="#1E8E5A" data-shot="assets/shot-allmosso.webp">
-        <div>
-          <div class="row__label"><span>plataforma · IFTO Palmas</span><span class="row__badge">● no ar · +1.000/sem</span><span class="tag-mobile"><svg viewBox="0 0 8 12" aria-hidden="true"><rect x="0.7" y="0.7" width="6.6" height="10.6" rx="1.3"/><line x1="3" y1="9.4" x2="5" y2="9.4"/></svg>mobile</span></div>
-          <div class="row__name">Allmosso</div>
-          <div class="row__thumb"><div class="poster" style="background:#1E8E5A"><span class="ptag">plataforma</span><span class="pname">allmosso</span></div><img src="assets/shot-allmosso.webp" alt="Print do allmosso" loading="lazy"></div>
-        </div>
-        <a class="row__link" href="https://allmosso.com.br" target="_blank" rel="noopener" aria-label="Abrir allmosso.com.br"></a>
-        <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
-      </article>
-
-      <article class="row" data-poster="#10233B" data-shot="assets/shot-higor.webp">
-        <div>
-          <div class="row__label"><span>imóveis · alto padrão</span></div>
-          <div class="row__name">Higor Oliver</div>
-          <div class="row__thumb"><div class="poster" style="background:#10233B"><span class="ptag">imóveis</span><span class="pname">Higor Oliver</span></div><img src="assets/shot-higor.webp" alt="Print do site Higor Oliver" loading="lazy"></div>
-        </div>
-        <a class="row__link" href="https://ti4g.github.io/higoroliver/" target="_blank" rel="noopener" aria-label="Abrir site Higor Oliver"></a>
-        <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
-      </article>
-
-      <article class="row" data-poster="#1C6FB8" data-shot="assets/shot-shirley.webp">
-        <div>
-          <div class="row__label"><span>imóveis · perita judicial</span></div>
-          <div class="row__name">Shirley Silva</div>
-          <div class="row__thumb"><div class="poster" style="background:#1C6FB8"><span class="ptag">imóveis</span><span class="pname">Shirley Silva</span></div><img src="assets/shot-shirley.webp" alt="Print do site Shirley Silva" loading="lazy"></div>
-        </div>
-        <a class="row__link" href="https://ti4g.github.io/ShirleySilva/" target="_blank" rel="noopener" aria-label="Abrir site Shirley Silva"></a>
-        <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
-      </article>
-
-      <article class="row" data-poster="#0C0C0D" data-shot="assets/shot-lux.webp">
-        <div>
-          <div class="row__label"><span>cloud gaming</span></div>
-          <div class="row__name">LUX</div>
-          <div class="row__thumb"><div class="poster" style="background:#0C0C0D"><span class="ptag" style="color:#35E0D0">cloud gaming</span><span class="pname" style="color:#35E0D0">LUX</span></div><img src="assets/shot-lux.webp" alt="Print do site LUX" loading="lazy"></div>
-        </div>
-        <a class="row__link" href="https://ti4g.github.io/lux/" target="_blank" rel="noopener" aria-label="Abrir site LUX"></a>
-        <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
-      </article>
-
-      <article class="row" data-poster="#E24B2E" data-shot="assets/shot-sneaker.webp">
-        <div>
-          <div class="row__label"><span>catálogo · e-commerce</span></div>
-          <div class="row__name">Sneaker Drops</div>
-          <div class="row__thumb"><div class="poster" style="background:#E24B2E"><span class="ptag">catálogo</span><span class="pname">Sneaker Drops</span></div><img src="assets/shot-sneaker.webp" alt="Print do catálogo Sneaker Drops" loading="lazy"></div>
-        </div>
-        <a class="row__link" href="https://ti4g.github.io/Sneaker-Drops/" target="_blank" rel="noopener" aria-label="Abrir catálogo Sneaker Drops"></a>
-        <span class="row__go">abrir <span aria-hidden="true">↗</span></span>
-      </article>
-
+  <!-- ================= CONTATO ================= -->
+  <section class="contact wrap" aria-labelledby="contact-title">
+    <div class="contact__head">
+      <span class="eyebrow">contato</span>
+      <h2 id="contact-title">"Se você quer <span style="color:var(--ipe-deep)">ganhar na loteria</span>, precisa ganhar
+        dinheiro para comprar o bilhete."</h2>
+      <p class="contact__sub">Tá com uma ideia parada? Bora botar no ar.</p>
     </div>
 
-    <aside class="preview" aria-hidden="true">
-      <div class="preview__frame" id="previewFrame"></div>
-      <div class="preview__hint"><span class="cur" aria-hidden="true">←</span> passe o mouse nos projetos</div>
-    </aside>
-  </div>
-</section>
+    <div class="links">
+      <div class="link">
+        <span class="link__n">01</span>
+        <span class="link__name">WhatsApp</span>
+        <span class="link__val">chamar <span class="arw">↗</span></span>
+        <a class="link__hit"
+          href="https://wa.me/5563999614831?text=Oi%20Tiago!%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar."
+          target="_blank" rel="noopener" aria-label="Falar no WhatsApp"></a>
+      </div>
+      <div class="link">
+        <span class="link__n">02</span>
+        <span class="link__name">Instagram</span>
+        <span class="link__val">@xktiago <span class="arw">↗</span></span>
+        <a class="link__hit" href="https://instagram.com/xktiago" target="_blank" rel="noopener"
+          aria-label="Abrir Instagram @xktiago"></a>
+      </div>
+      <div class="link">
+        <span class="link__n">03</span>
+        <span class="link__name">GitHub</span>
+        <span class="link__val">/ti4g <span class="arw">↗</span></span>
+        <a class="link__hit" href="https://github.com/ti4g" target="_blank" rel="noopener"
+          aria-label="Abrir GitHub /ti4g"></a>
+      </div>
+      <div class="link">
+        <span class="link__n">04</span>
+        <span class="link__name">LinkedIn</span>
+        <span class="link__val">/in/tiagokxb <span class="arw">↗</span></span>
+        <a class="link__hit" href="https://www.linkedin.com/in/tiagokxb/" target="_blank" rel="noopener"
+          aria-label="Abrir LinkedIn"></a>
+      </div>
+      <div class="link">
+        <span class="link__n">05</span>
+        <span class="link__name">E-mail</span>
+        <span class="link__val" id="mailVal">tiagokxb@gmail.com <span class="arw" aria-hidden="true">⧉</span></span>
+        <button class="link__hit" id="copyMail" type="button" style="background:none;border:0;cursor:pointer"
+          aria-label="Copiar e-mail business.kxb@gmail.com"></button>
+      </div>
+    </div>
+  </section>
 
-<!-- ================= SOBRE ================= -->
-<section class="about" aria-labelledby="about-title">
-  <div class="wrap">
-    <span class="eyebrow">sobre</span>
-    <p id="about-title">Faço sites pra quem tá começando (ou já começou), sem enrolação e explicado de um jeito simples onde <span class="hl">você entende o que quer</span>, e entende o que eu faço.</p>
-    <div class="about__meta">
-      <span>base<b>Palmas, TO · atendo remoto</b></span>
-      <span>faço<b>sites · landing pages · plataformas</b></span>
-      <span>stack<b>HTML · CSS · JavaScript</b></span>
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__mark">Tiago Quixaba</p>
+      <div class="foot__row">
+        <span class="foot__sig"><abbr class="kxbmark" title="tirando ideias do papel desde 2024">kxb</abbr> © 2026 —
+          feito em Palmas, TO</span>
+        <span><a href="#top">voltar ao topo ↑</a></span>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ================= CONTATO ================= -->
-<section class="contact wrap" aria-labelledby="contact-title">
-  <div class="contact__head">
-    <span class="eyebrow">contato</span>
-    <h2 id="contact-title">"Se você quer <span style="color:var(--ipe-deep)">ganhar na loteria</span>, precisa ganhar dinheiro para comprar o bilhete."</h2>
-    <p class="contact__sub">Tá com uma ideia parada? Bora botar no ar.</p>
-  </div>
-
-  <div class="links">
-    <div class="link">
-      <span class="link__n">01</span>
-      <span class="link__name">WhatsApp</span>
-      <span class="link__val">chamar <span class="arw">↗</span></span>
-      <a class="link__hit" href="https://wa.me/5563999614831?text=Oi%20Tiago!%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"></a>
-    </div>
-    <div class="link">
-      <span class="link__n">02</span>
-      <span class="link__name">Instagram</span>
-      <span class="link__val">@xktiago <span class="arw">↗</span></span>
-      <a class="link__hit" href="https://instagram.com/xktiago" target="_blank" rel="noopener" aria-label="Abrir Instagram @xktiago"></a>
-    </div>
-    <div class="link">
-      <span class="link__n">03</span>
-      <span class="link__name">GitHub</span>
-      <span class="link__val">/ti4g <span class="arw">↗</span></span>
-      <a class="link__hit" href="https://github.com/ti4g" target="_blank" rel="noopener" aria-label="Abrir GitHub /ti4g"></a>
-    </div>
-    <div class="link">
-      <span class="link__n">04</span>
-      <span class="link__name">LinkedIn</span>
-      <span class="link__val">/in/tiagokxb <span class="arw">↗</span></span>
-      <a class="link__hit" href="https://www.linkedin.com/in/tiagokxb/" target="_blank" rel="noopener" aria-label="Abrir LinkedIn"></a>
-    </div>
-    <div class="link">
-      <span class="link__n">05</span>
-      <span class="link__name">E-mail</span>
-      <span class="link__val" id="mailVal">tiagokxb@gmail.com <span class="arw" aria-hidden="true">⧉</span></span>
-      <button class="link__hit" id="copyMail" type="button" style="background:none;border:0;cursor:pointer" aria-label="Copiar e-mail business.kxb@gmail.com"></button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= RODAPÉ ================= -->
-<footer class="foot">
-  <div class="wrap">
-    <p class="foot__mark">Tiago Quixaba</p>
-    <div class="foot__row">
-      <span>© 2026 — feito em Palmas, TO</span>
-      <span><a href="#top">voltar ao topo ↑</a></span>
-    </div>
-  </div>
-</footer>
-
-<!-- ================= LIBS: Lenis (scroll liso) + GSAP (motion) ================= -->
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="script.js"></script>
+  <!-- ================= LIBS: Lenis (scroll liso) + GSAP (motion) ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="analytics.js"></script>
 </body>
+
 </html>

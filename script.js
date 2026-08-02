@@ -82,6 +82,7 @@
     // esconde o entorno (tela em branco no começo)
     gsap.set('.hero__top', { opacity:0 });
     gsap.set('.hero__bottom > *', { opacity:0, y:16 });
+    gsap.set('.proof', { y:22 });   // a prova do allmosso entra só depois da frase, no scroll
     // cada letra parte de um ponto espalhado ao redor da tela e desliza pro lugar
     var vw = window.innerWidth, vh = window.innerHeight, cx = vw/2, cy = vh/2;
     var n = letters.length;
@@ -98,7 +99,7 @@
     var tl = gsap.timeline({ delay:.2 });
     tl.to(letters, { opacity:1, duration:1.1, ease:'power2.out', stagger:{ each:0.04, from:'random' } });
     tl.to('.hero__top', { opacity:1, duration:.7, ease:'power2.out' }, '-=.4');
-    tl.to('.hero__bottom > *', { opacity:1, y:0, duration:.8, ease:'expo.out', stagger:.12 }, '<');
+    tl.to('.scrollcue', { opacity:1, y:0, duration:.8, ease:'expo.out' }, '<');
     // respiro: cada letra flutua de leve no lugar onde parou
     var floats = letters.map(function(s){
       return gsap.to(s, { x:'+='+((Math.random()-0.5)*26), y:'+='+((Math.random()-0.5)*26), rotation:'+='+((Math.random()-0.5)*7),
@@ -129,6 +130,7 @@
     // 2) só então a frase cai palavra por palavra
     stl.to(words, { opacity:1, yPercent:0, ease:'power2.out', stagger:0.4, duration:1 }, '>-0.1');
     stl.to('.hero__bordao', { opacity:1, y:0, ease:'power2.out', duration:0.8 }, '>-0.15');
+    stl.to('.proof', { opacity:1, y:0, ease:'power2.out', duration:0.8 }, '>-0.3');
     if(path){ stl.to(path, { strokeDashoffset:0, ease:'none', duration:0.6 }, '>-0.2'); }
 
     // reveals no scroll
