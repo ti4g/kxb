@@ -84,16 +84,19 @@
     gsap.set('.hero__bottom > *', { opacity:0, y:16 });
     // cada letra parte de um ponto espalhado ao redor da tela e desliza pro lugar
     var vw = window.innerWidth, vh = window.innerHeight, cx = vw/2, cy = vh/2;
-    var R = Math.max(vw, vh) * 0.62, n = letters.length;
+    var n = letters.length;
     letters.forEach(function(s, i){
       var r = s.getBoundingClientRect();
-      var ang = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.8;
-      var sx = cx + Math.cos(ang) * R, sy = cy + Math.sin(ang) * R;
+      var pad = Math.max(r.width, r.height) * 0.6 + 10;      // margem pra letra não encostar na borda
+      var rx = Math.max(cx - pad, 40), ry = Math.max(cy - pad, 40);
+      var ang = (((i * 5) % n) / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.8;
+      var k = 0.72 + Math.random() * 0.28;                    // espalha entre 72% e 100% do limite
+      var sx = cx + Math.cos(ang) * rx * k, sy = cy + Math.sin(ang) * ry * k;
       gsap.set(s, { x: sx - (r.left + r.width/2), y: sy - (r.top + r.height/2), rotation:(Math.random()-0.5)*18, opacity:0 });
     });
     // load: as letras só APARECEM espalhadas e ficam flutuando (o nome ainda não se lê)
     var tl = gsap.timeline({ delay:.2 });
-    tl.to(letters, { opacity:1, duration:1.1, ease:'power2.out', stagger:{ each:0.04, from:'edges' } });
+    tl.to(letters, { opacity:1, duration:1.1, ease:'power2.out', stagger:{ each:0.04, from:'random' } });
     tl.to('.hero__top', { opacity:1, duration:.7, ease:'power2.out' }, '-=.4');
     tl.to('.hero__bottom > *', { opacity:1, y:0, duration:.8, ease:'expo.out', stagger:.12 }, '<');
     // respiro: cada letra flutua de leve no lugar onde parou
@@ -115,10 +118,16 @@
     if(path){ path.style.strokeDasharray = plen; path.style.strokeDashoffset = plen; }
     gsap.set(words, { opacity:0, yPercent:-110 });
     gsap.set('.hero__bordao', { opacity:0, y:22 });
+    var bar = document.querySelector('.heroprog i');
+    var hint = document.querySelector('.scrollhint');
     var stl = gsap.timeline({ scrollTrigger:{ trigger:'.hero', start:'top top', end:'+=160%', pin:true, scrub:0.5, anticipatePin:1,
-      onUpdate:function(self){ if(self.progress > 0.01){ floats.forEach(function(f){ f.kill(); }); } } } });
+      onUpdate:function(self){
+        if(self.progress > 0.01){ floats.forEach(function(f){ f.kill(); }); }
+        if(bar){ bar.style.width = (self.progress*100).toFixed(1) + '%'; }
+        if(hint){ gsap.to(hint, { opacity: self.progress > 0.02 ? 0 : 1, duration:.35, overwrite:true }); }
+      } } });
     // 1) as letras param de flutuar e convergem formando o nome
-    stl.to(letters, { x:0, y:0, rotation:0, ease:'power2.inOut', stagger:{ each:0.06, from:'edges' }, duration:1.6 });
+    stl.to(letters, { x:0, y:0, rotation:0, ease:'power2.inOut', stagger:{ each:0.05, from:'start' }, duration:1.6 });
     // 2) só então a frase cai palavra por palavra
     stl.to(words, { opacity:1, yPercent:0, ease:'power2.out', stagger:0.4, duration:1 }, '>-0.1');
     stl.to('.hero__bordao', { opacity:1, y:0, ease:'power2.out', duration:0.8 }, '>-0.15');
