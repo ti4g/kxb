@@ -115,6 +115,15 @@ img{max-width:100%;display:block}
   transition:none;
 }
 
+/* aviso discreto no centro — as letras orbitam em volta dele */
+.scrollhint{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-soft);white-space:nowrap;pointer-events:none;opacity:0;z-index:2;
+}
+.scrollhint .arw{display:inline-block;animation:bob 1.8s var(--ease) infinite}
+
 /* linha ipê que enche conforme a cena do hero avança */
 .heroprog{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--line);z-index:3}
 .heroprog i{display:block;height:100%;width:0%;background:var(--ipe)}
